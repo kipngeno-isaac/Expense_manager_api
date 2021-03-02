@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const ExpenseSchema = new mongoose.Schema({
   title:{
@@ -17,6 +17,6 @@ const ExpenseSchema = new mongoose.Schema({
 {
   timestamps:true
 }
-)
+);
 
-module.exports = mongoose.model('Expense', ExpenseSchema)
+module.exports = mongoose.model('Expense', ExpenseSchema);
