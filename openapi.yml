@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Express Expense Manager API - OpenAPI 3.0
+  description: |-
+    This is express expense manager api server swagger documentation based on the openapi specification
+
+    
+    Some useful links:
+    - [The Express Expense Manager API repository](https://github.com/kipngeno-isaac/Expense_manager_api)
+    - [The source API definition for the Express Expense Manager API](https://github.com/kipngeno-isaac/Expense_manager_api/openapi.yaml)
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: isaac2ngeno5@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:8081
+tags:
+  - name: expense
+    description: Everything about your expenses
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+  - name: categories
+    description: Access to expense categories
+    externalDocs:
+      description: Find out more about our store
+      url: http://swagger.io
+  - name: user
+    description: Operations about user
+paths:
+  /expenses:
+    post:
+      description: Saves an expense
+      payload:
+        content:
+          Application/json:
+           schema:
+             type: object
+             properties:
+               data:
+                 type: object
+                 title:
+                   type:string
+                   description: name of the expense
+                   example: shopping
+                   amount:
+                    type: number
+                    description: amount spend on expense
+                    example: 500
