@@ -3,21 +3,20 @@ info:
   title: Express Expense Manager API - OpenAPI 3.0
   description: |-
     This is express expense manager api server swagger documentation based on the openapi specification
-
     
     Some useful links:
     - [The Express Expense Manager API repository](https://github.com/kipngeno-isaac/Expense_manager_api)
     - [The source API definition for the Express Expense Manager API](https://github.com/kipngeno-isaac/Expense_manager_api/openapi.yaml)
-  termsOfService: http://swagger.io/terms/
+  termsOfService: https://swagger.io/terms/
   contact:
     email: isaac2ngeno5@gmail.com
   license:
     name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.11
 externalDocs:
   description: Find out more about Swagger
-  url: http://swagger.io
+  url: https://swagger.io
 servers:
   - url: http://localhost:8081
 tags:
@@ -25,7 +24,7 @@ tags:
     description: Everything about your expenses
     externalDocs:
       description: Find out more
-      url: http://swagger.io
+      url: https://swagger.io
   - name: categories
     description: Access to expense categories
     externalDocs:
@@ -36,20 +35,30 @@ tags:
 paths:
   /expenses:
     post:
-      description: Saves an expense
-      payload:
+      tags:
+        - expense
+      summary: Add new expense
+      description: Add new expense record
+      requestBody:
+        description: Create a new expense record
         content:
           Application/json:
-           schema:
-             type: object
-             properties:
-               data:
-                 type: object
-                 title:
-                   type:string
-                   description: name of the expense
-                   example: shopping
-                   amount:
-                    type: number
-                    description: amount spend on expense
-                    example: 500
+            schema:
+              $ref: '#/components/schemas/Expense'
+      responses:
+        201:
+          $ref: '#/components/schemas/Expense'
+
+components:
+  schemas:
+    Expense:
+        type: object
+        properties:
+          title:
+            type: string
+            description: name of the expense
+            example: shopping
+          amount:
+            type: number
+            description: amount spend on expense
+            example: 500
