@@ -49,6 +49,14 @@ paths:
         201:
           $ref: '#/components/schemas/Expense'
 
+    get:
+      tags:
+        - expense
+      summary: Retrieve a list of all the expenses saved
+      responses:
+        200:
+          $ref: '#/components/schemas/Expense'
+
 components:
   schemas:
     Expense:
